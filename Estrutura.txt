@@ -1,0 +1,18 @@
+academy-saas/
+├── backend/
+│   ├── src/
+│   │   ├── auth/
+│   │   ├── users/
+│   │   ├── checkins/
+│   │   ├── treadmill/
+│   │   ├── rankings/
+│   │   ├── workouts/
+│   │   └── main.ts
+│   └── package.json
+└── frontend/
+    ├── src/
+    │   ├── components/
+    │   ├── pages/
+    │   ├── services/
+    │   └── App.jsx
+    └── package.json
