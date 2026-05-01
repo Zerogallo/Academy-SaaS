@@ -1,4 +1,4 @@
-import { Controller, Get, UseGuards } from '@nestjs/common';
+import { Controller, Get, UseGuards, Param } from '@nestjs/common';
 import { WorkoutsService } from './workouts.service';
 import { AuthGuard } from '@nestjs/passport';
 
@@ -15,5 +15,10 @@ export class WorkoutsController {
   @Get('today')
   getTodayWorkout() {
     return this.workoutsService.getTodaysRecommendedWorkout();
+  }
+
+  @Get(':type')
+  getWorkoutByType(@Param('type') type: string) {
+    return this.workoutsService.getWorkoutByType(type.toUpperCase());
   }
 }

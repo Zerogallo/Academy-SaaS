@@ -8,6 +8,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+var __param = (this && this.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.WorkoutsController = void 0;
 const common_1 = require("@nestjs/common");
@@ -23,6 +26,9 @@ let WorkoutsController = class WorkoutsController {
     getTodayWorkout() {
         return this.workoutsService.getTodaysRecommendedWorkout();
     }
+    getWorkoutByType(type) {
+        return this.workoutsService.getWorkoutByType(type.toUpperCase());
+    }
 };
 exports.WorkoutsController = WorkoutsController;
 __decorate([
@@ -37,6 +43,13 @@ __decorate([
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", void 0)
 ], WorkoutsController.prototype, "getTodayWorkout", null);
+__decorate([
+    (0, common_1.Get)(':type'),
+    __param(0, (0, common_1.Param)('type')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String]),
+    __metadata("design:returntype", void 0)
+], WorkoutsController.prototype, "getWorkoutByType", null);
 exports.WorkoutsController = WorkoutsController = __decorate([
     (0, common_1.Controller)('workouts'),
     (0, common_1.UseGuards)((0, passport_1.AuthGuard)('jwt')),

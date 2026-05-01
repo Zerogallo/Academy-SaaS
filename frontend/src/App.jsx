@@ -6,6 +6,8 @@ import Ranking from './pages/Ranking';
 import ProtectedRoute from './components/ProtectedRoute';
 import Layout from './components/Layout';
 import Profile from './pages/Profile';
+import WorkoutDetails from './pages/WorkoutDetails';
+
 
 function App() {
   return (
@@ -28,6 +30,7 @@ function App() {
       } />
       <Route path="/" element={<ProtectedRoute><Layout><Dashboard /></Layout></ProtectedRoute>} />
       <Route path="/profile" element={<ProtectedRoute><Layout><Profile /></Layout></ProtectedRoute>} />
+      <Route path="/workouts/:type?" element={<ProtectedRoute><Layout><WorkoutDetails /></Layout></ProtectedRoute>} />
     </Routes>
   );
 }

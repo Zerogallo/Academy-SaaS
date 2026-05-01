@@ -48,6 +48,7 @@ export default function Navbar() {
             <div className="nav-links">
                 <Link to="/dashboard">Dashboard</Link>
                 <Link to="/ranking">Ranking</Link>
+                <Link to="/workouts/A">Treinos</Link>
                 <Link to="/profile">Meu Perfil</Link>
                 <div className="user-info">
                     {user?.photo && (
