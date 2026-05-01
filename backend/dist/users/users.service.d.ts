@@ -9,4 +9,5 @@ export declare class UsersService {
     updateEvaluation(userId: number): Promise<User>;
     needsEvaluation(userId: number): Promise<boolean>;
     updatePhoto(userId: number, photoPath: string): Promise<User>;
+    updateProfile(userId: number, name: string, photoPath?: string): Promise<User>;
 }

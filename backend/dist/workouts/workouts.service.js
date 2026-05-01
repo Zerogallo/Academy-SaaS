@@ -16,13 +16,20 @@ let WorkoutsService = class WorkoutsService {
             C: ['Pernas', 'Abdômen'],
         };
     }
-    getTodaysWorkout() {
+    getAllWorkouts() {
+        return [
+            { type: 'A', exercises: this.workoutSequence.A, always: 'Esteira (registrar tempo separadamente)' },
+            { type: 'B', exercises: this.workoutSequence.B, always: 'Esteira (registrar tempo separadamente)' },
+            { type: 'C', exercises: this.workoutSequence.C, always: 'Esteira (registrar tempo separadamente)' },
+        ];
+    }
+    getTodaysRecommendedWorkout() {
         const dayIndex = new Date().getDay();
         const workouts = ['A', 'B', 'C'];
-        const todayWorkout = workouts[dayIndex % 3];
+        const recommendedType = workouts[dayIndex % 3];
         return {
-            type: todayWorkout,
-            exercises: this.workoutSequence[todayWorkout],
+            type: recommendedType,
+            exercises: this.workoutSequence[recommendedType],
             always: 'Esteira (registrar tempo separadamente)',
         };
     }

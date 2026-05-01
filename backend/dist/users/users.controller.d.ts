@@ -17,4 +17,13 @@ export declare class UsersController {
     renewEvaluation(req: any): Promise<{
         message: string;
     }>;
+    updateProfile(req: any, file: Express.Multer.File, name: string): Promise<{
+        id: number;
+        name: string;
+        photo: string;
+        email: string;
+        lastEvaluationDate: Date;
+        checkins: import("../checkins/checkin.entity").Checkin[];
+        treadmillSessions: import("../treadmill/treadmill.entity").TreadmillSession[];
+    }>;
 }

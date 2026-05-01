@@ -66,3 +66,129 @@ button:hover {
     width: 100%;
   }
 }
+/* ... estilos existentes ... */
+
+.progress-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  margin: 24px 0;
+}
+
+.progress-card {
+  flex: 1;
+  min-width: 250px;
+  background: white;
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  transition: transform 0.2s;
+}
+
+.progress-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.progress-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  font-weight: 500;
+  color: #2d3748;
+}
+
+.progress-bar-container {
+  background-color: #edf2f7;
+  border-radius: 40px;
+  height: 32px;
+  overflow: hidden;
+  position: relative;
+}
+
+.progress-bar {
+  height: 100%;
+  border-radius: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  transition: width 0.6s ease-out;
+  position: relative;
+}
+
+.academy-bar {
+  background: linear-gradient(90deg, #667eea, #764ba2);
+}
+
+.treadmill-bar {
+  background: linear-gradient(90deg, #48bb78, #38a169);
+}
+
+.progress-label {
+  color: white;
+  font-size: 0.8rem;
+  font-weight: bold;
+  padding-right: 12px;
+  text-shadow: 0 0 2px rgba(0,0,0,0.2);
+}
+
+@media (max-width: 700px) {
+  .progress-section {
+    flex-direction: column;
+  }
+}
+.workouts-section {
+  margin: 24px 0;
+}
+
+.workouts-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.workout-card {
+  flex: 1;
+  min-width: 250px;
+  background: white;
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transition: all 0.2s;
+}
+
+.workout-card.recommended {
+  border: 2px solid #48bb78;
+  background: linear-gradient(135deg, #f0fff4, #e6fffa);
+  box-shadow: 0 8px 20px rgba(72,187,120,0.2);
+}
+
+.workout-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+
+.workout-type {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #2d3748;
+}
+
+.badge {
+  background: #48bb78;
+  color: white;
+  padding: 4px 12px;
+  border-radius: 40px;
+  font-size: 0.75rem;
+  font-weight: bold;
+}
+
+.always-treadmill {
+  margin-top: 12px;
+  font-size: 0.85rem;
+  color: #718096;
+  font-style: italic;
+}

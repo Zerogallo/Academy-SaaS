@@ -52,6 +52,14 @@ let UsersService = class UsersService {
         user.photo = photoPath;
         return this.usersRepository.save(user);
     }
+    async updateProfile(userId, name, photoPath) {
+        const user = await this.findById(userId);
+        if (name)
+            user.name = name;
+        if (photoPath)
+            user.photo = photoPath;
+        return this.usersRepository.save(user);
+    }
 };
 exports.UsersService = UsersService;
 exports.UsersService = UsersService = __decorate([

@@ -14,6 +14,9 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.UsersController = void 0;
 const common_1 = require("@nestjs/common");
+const platform_express_1 = require("@nestjs/platform-express");
+const multer_1 = require("multer");
+const path_1 = require("path");
 const users_service_1 = require("./users.service");
 const passport_1 = require("@nestjs/passport");
 let UsersController = class UsersController {
@@ -32,6 +35,12 @@ let UsersController = class UsersController {
     async renewEvaluation(req) {
         await this.usersService.updateEvaluation(req.user.userId);
         return { message: 'Avaliação renovada com sucesso' };
+    }
+    async updateProfile(req, file, name) {
+        const photoPath = file ? file.path : undefined;
+        const updatedUser = await this.usersService.updateProfile(req.user.userId, name, photoPath);
+        const { password, ...result } = updatedUser;
+        return result;
     }
 };
 exports.UsersController = UsersController;
@@ -56,6 +65,31 @@ __decorate([
     __metadata("design:paramtypes", [Object]),
     __metadata("design:returntype", Promise)
 ], UsersController.prototype, "renewEvaluation", null);
+__decorate([
+    (0, common_1.Put)('profile'),
+    (0, common_1.UseInterceptors)((0, platform_express_1.FileInterceptor)('photo', {
+        storage: (0, multer_1.diskStorage)({
+            destination: './uploads',
+            filename: (req, file, cb) => {
+                const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1e9);
+                cb(null, `profile-${uniqueSuffix}${(0, path_1.extname)(file.originalname)}`);
+            },
+        }),
+        limits: { fileSize: 5 * 1024 * 1024 },
+        fileFilter: (req, file, cb) => {
+            if (!file.mimetype.match(/\/(jpg|jpeg|png|gif)$/)) {
+                return cb(new common_1.BadRequestException('Formato de imagem inválido'), false);
+            }
+            cb(null, true);
+        },
+    })),
+    __param(0, (0, common_1.Request)()),
+    __param(1, (0, common_1.UploadedFile)()),
+    __param(2, (0, common_1.Body)('name')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object, Object, String]),
+    __metadata("design:returntype", Promise)
+], UsersController.prototype, "updateProfile", null);
 exports.UsersController = UsersController = __decorate([
     (0, common_1.Controller)('users'),
     (0, common_1.UseGuards)((0, passport_1.AuthGuard)('jwt')),

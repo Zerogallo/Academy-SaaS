@@ -17,11 +17,20 @@ let WorkoutsController = class WorkoutsController {
     constructor(workoutsService) {
         this.workoutsService = workoutsService;
     }
+    getAllWorkouts() {
+        return this.workoutsService.getAllWorkouts();
+    }
     getTodayWorkout() {
-        return this.workoutsService.getTodaysWorkout();
+        return this.workoutsService.getTodaysRecommendedWorkout();
     }
 };
 exports.WorkoutsController = WorkoutsController;
+__decorate([
+    (0, common_1.Get)('all'),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", void 0)
+], WorkoutsController.prototype, "getAllWorkouts", null);
 __decorate([
     (0, common_1.Get)('today'),
     __metadata("design:type", Function),

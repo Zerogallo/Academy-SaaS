@@ -6,6 +6,8 @@ import { CheckinsModule } from './checkins/checkins.module';
 import { TreadmillModule } from './treadmill/treadmill.module';
 import { RankingsModule } from './rankings/rankings.module';
 import { WorkoutsModule } from './workouts/workouts.module';
+import { StatsModule } from './stats/stats.module';
+import { CommentsModule } from './Comments/Comments.module';
 
 @Module({
   imports: [
@@ -21,6 +23,8 @@ import { WorkoutsModule } from './workouts/workouts.module';
     TreadmillModule,
     RankingsModule,
     WorkoutsModule,
+    StatsModule,
+    CommentsModule,
   ],
 })
 export class AppModule {}

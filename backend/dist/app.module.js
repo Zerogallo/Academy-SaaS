@@ -15,6 +15,8 @@ const checkins_module_1 = require("./checkins/checkins.module");
 const treadmill_module_1 = require("./treadmill/treadmill.module");
 const rankings_module_1 = require("./rankings/rankings.module");
 const workouts_module_1 = require("./workouts/workouts.module");
+const stats_module_1 = require("./stats/stats.module");
+const Comments_module_1 = require("./Comments/Comments.module");
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
@@ -33,6 +35,8 @@ exports.AppModule = AppModule = __decorate([
             treadmill_module_1.TreadmillModule,
             rankings_module_1.RankingsModule,
             workouts_module_1.WorkoutsModule,
+            stats_module_1.StatsModule,
+            Comments_module_1.CommentsModule,
         ],
     })
 ], AppModule);

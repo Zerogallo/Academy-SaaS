@@ -8,13 +8,21 @@ export class WorkoutsService {
     C: ['Pernas', 'Abdômen'],
   };
 
-  getTodaysWorkout() {
-    const dayIndex = new Date().getDay(); // 0 = domingo
+  getAllWorkouts() {
+    return [
+      { type: 'A', exercises: this.workoutSequence.A, always: 'Esteira (registrar tempo separadamente)' },
+      { type: 'B', exercises: this.workoutSequence.B, always: 'Esteira (registrar tempo separadamente)' },
+      { type: 'C', exercises: this.workoutSequence.C, always: 'Esteira (registrar tempo separadamente)' },
+    ];
+  }
+
+  getTodaysRecommendedWorkout() {
+    const dayIndex = new Date().getDay(); // 0 = domingo, 1 = segunda...
     const workouts = ['A', 'B', 'C'];
-    const todayWorkout = workouts[dayIndex % 3];
+    const recommendedType = workouts[dayIndex % 3];
     return {
-      type: todayWorkout,
-      exercises: this.workoutSequence[todayWorkout],
+      type: recommendedType,
+      exercises: this.workoutSequence[recommendedType],
       always: 'Esteira (registrar tempo separadamente)',
     };
   }
@@ -22,4 +30,4 @@ export class WorkoutsService {
   getWorkoutByType(type: string) {
     return this.workoutSequence[type] || null;
   }
-} 
+}

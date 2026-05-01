@@ -1,6 +1,11 @@
 export declare class WorkoutsService {
     private workoutSequence;
-    getTodaysWorkout(): {
+    getAllWorkouts(): {
+        type: string;
+        exercises: string[];
+        always: string;
+    }[];
+    getTodaysRecommendedWorkout(): {
         type: string;
         exercises: any;
         always: string;

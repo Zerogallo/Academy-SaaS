@@ -44,4 +44,12 @@ export class UsersService {
     user.photo = photoPath;
     return this.usersRepository.save(user);
   }
-}
+  
+  
+  async updateProfile(userId: number, name: string, photoPath?: string): Promise<User> {
+    const user = await this.findById(userId);
+    if (name) user.name = name;
+    if (photoPath) user.photo = photoPath;
+    return this.usersRepository.save(user);
+  }
+} 
