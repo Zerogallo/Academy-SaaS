@@ -2,6 +2,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import api from '../services/api';
 import '../styles/css/components/Navbar.css';
+import logo from '../assets/academia.jpg';
 
 export default function Navbar() {
     const navigate = useNavigate();
@@ -43,7 +44,7 @@ export default function Navbar() {
     return (
         <nav className="navbar">
             <div className="nav-brand">
-                <Link to="/dashboard">Academy SaaS</Link>
+                <Link to="/dashboard"><img src={logo} alt="Academy SaaS Logo" className="logo" /></Link>
             </div>
             <div className="nav-links">
                 <Link to="/dashboard">Dashboard</Link>

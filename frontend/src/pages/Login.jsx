@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import api from '../services/api';
 import '../styles/css/Login.css';
+import logo from '../assets/academia.jpg';
 
 export default function Login() {
     const [email, setEmail] = useState('');
@@ -44,8 +45,9 @@ export default function Login() {
     return (
         <div className="login-container">
             <form onSubmit={handleSubmit} className="login-form">
-                <h2>Academy SaaS</h2>
-                <p className="subtitle">Acesse sua conta</p>
+                <img src={logo} alt="Academy SaaS Logo" className="logo" />
+
+                <h2>Acesse sua conta</h2>
 
                 {error && <div className="error-message">{error}</div>}
 

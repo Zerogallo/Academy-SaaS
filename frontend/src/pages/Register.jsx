@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import api from '../services/api';
 import '../styles/css/Register.css';
+import logo from '../assets/academia.jpg';
 
 export default function Register() {
     const navigate = useNavigate();
@@ -100,8 +101,9 @@ export default function Register() {
     return (
         <div className="register-container">
             <form onSubmit={handleSubmit} className="register-form">
+                <img src={logo} alt="Academy SaaS Logo" className="logo" />
                 <h2>Criar Conta</h2>
-                <p className="subtitle">Academy SaaS</p>
+
 
                 {error && <div className="error-message">{error}</div>}
 

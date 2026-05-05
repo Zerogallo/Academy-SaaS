@@ -1,8 +1,10 @@
-/* ===== ESTILOS BASE (Desktop) ===== */
 .workout-details-container {
-  max-width: 1200px;
-  margin: 2rem auto;
+  max-width: 100%;
   padding: 0 1rem;
+  background-image: url('../../assets/lucid.jpg');
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
 }
 
 /* Seção dos cards (resumo) */
